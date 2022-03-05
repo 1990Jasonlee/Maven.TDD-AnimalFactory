@@ -1,7 +1,11 @@
 package rocks.zipcodewilmington;
 
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
+
+import java.util.Date;
 
 /**
  * @author leon on 4/19/18.
@@ -14,7 +18,7 @@ public class CatHouseTest {
     // TODO - Create tests for `Integer getNumberOfCats()`
 
     @Test
-    public void catTest(){
+    public void addCatTest(){
 
     }
     @Test
@@ -31,6 +35,16 @@ public class CatHouseTest {
     }
     @Test
     public void getNumOfCatsTest(){
+        // Given (some
+        String name = "Zula";
+        Date birthDate = new Date();
+        Cat animal = AnimalFactory.createCat(name, birthDate);
+        CatHouse.clear();
 
+        // When
+        CatHouse.add(animal);
+
+        // Then
+        CatHouse.getNumberOfCats();
     }
 }

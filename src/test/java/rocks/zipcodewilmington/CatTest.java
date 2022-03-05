@@ -45,10 +45,10 @@ public class CatTest {
     @Test
     public void setNameTest(){
         //Given
+        Cat cat = new Cat(null, null, null);
         String expected = "cat";
         //When
-        Date catDate = new Date();
-        Cat cat = new Cat(expected, catDate, 1);
+        cat.setName(expected);
         //Then
         String actual = cat.getName();
         Assert.assertEquals(expected, actual);
@@ -56,11 +56,9 @@ public class CatTest {
     @Test
     public void speakTest(){
         //Given
-        String expected = "meow!";
+        Cat cat = new Cat(null, null, null);
         //When
-        String catName = "cat";
-        Date catDate = new Date();
-        Cat cat = new Cat(catName, catDate, 1);
+        String expected = "meow!";
         //Then
         String actual = cat.speak();
         Assert.assertEquals(expected, actual);
@@ -68,11 +66,10 @@ public class CatTest {
     @Test
     public void setBirthDateTest(){
         //Given
+        Cat cat = new Cat(null, null, null);
         Date expected = new Date(1,1,1);
         //When
-        String catName = "cat";
-        Date catDate = new Date();
-        Cat cat = new Cat(catName, expected, 1);
+        cat.setBirthDate(expected);
         //Then
         Date actual = cat.getBirthDate();
         Assert.assertEquals(expected, actual);
@@ -80,12 +77,10 @@ public class CatTest {
     @Test
     public void eatTest(){
         //Given
+        Cat cat = new Cat(null, null, null);
         Food food = new Food();
         int expected = 3;
         //When
-        String catName = "cat";
-        Date catDate = new Date();
-        Cat cat = new Cat(catName, catDate, 1);
         cat.eat(food);
         cat.eat(food);
         cat.eat(food);
@@ -96,11 +91,9 @@ public class CatTest {
     @Test
     public void idTest(){
         //Given
-        int expected = 5;
+        Cat cat = new Cat(null, null, 5);
         //When
-        String catName = "cat";
-        Date catDate = new Date();
-        Cat cat = new Cat(catName, catDate, expected);
+        int expected = 5;
         //Then
         int actual = cat.getId();
         Assert.assertEquals(expected, actual);
@@ -108,18 +101,14 @@ public class CatTest {
     @Test
     public void animalInheritTest(){
         //When
-        String catName = "cat";
-        Date catDate = new Date();
-        Cat cat = new Cat(catName, catDate, 1);
+        Cat cat = new Cat(null, null, null);
         //Then
         Assert.assertTrue(cat instanceof Animal);
     }
     @Test
     public void mammalInheritTest(){
         //When
-        String catName = "cat";
-        Date catDate = new Date();
-        Cat cat = new Cat(catName, catDate, 1);
+        Cat cat = new Cat(null, null, null);
         //Then
         Assert.assertTrue(cat instanceof Mammal);
     }

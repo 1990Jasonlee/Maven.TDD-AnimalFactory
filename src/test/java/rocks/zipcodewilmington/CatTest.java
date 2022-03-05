@@ -3,7 +3,9 @@ package rocks.zipcodewilmington;
 import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Mammal;
 
+import javax.naming.Name;
 import java.util.Date;
 
 /**
@@ -40,7 +42,41 @@ public class CatTest {
         Assert.assertEquals(givenId, retrievedId);
     }
     @Test
-    public void (){
+    public void setNameTest(){
+        //Given
+        String expected = "cat";
+        //When
+        Date catDate = new Date();
+        Cat cat = new Cat(expected, catDate, 1);
+        //Then
+        String actual = cat.getName();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void speakTest(){
+        //Given
+        String expected = "meow!";
+        //When
+        String catName = "cat";
+        Date catDate = new Date();
+        Cat cat = new Cat(catName, catDate, 1);
+        //Then
+        String actual = cat.speak();
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void setBirthDateTest(){
+        //Given
+        Date expected = new Date(1,1,1);
+
+        //When
+        String catName = "cat";
+        Date catDate = new Date();
+        Cat cat = new Cat(catName, expected, 1);
+        //Then
+        Date actual = cat.getBirthDate();
+        Assert.assertEquals(expected,actual);
+
 
     }
 }

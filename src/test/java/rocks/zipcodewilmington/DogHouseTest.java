@@ -89,8 +89,6 @@ public class DogHouseTest {
         // Then
         Dog actual = DogHouse.getDogById(3);
         Assert.assertEquals(expected, actual);
-
-
     }
 
     @Test

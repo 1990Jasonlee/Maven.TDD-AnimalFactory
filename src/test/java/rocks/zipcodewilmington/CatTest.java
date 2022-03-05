@@ -2,6 +2,7 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Mammal;
 
@@ -62,21 +63,64 @@ public class CatTest {
         Cat cat = new Cat(catName, catDate, 1);
         //Then
         String actual = cat.speak();
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
     @Test
     public void setBirthDateTest(){
         //Given
         Date expected = new Date(1,1,1);
-
         //When
         String catName = "cat";
         Date catDate = new Date();
         Cat cat = new Cat(catName, expected, 1);
         //Then
         Date actual = cat.getBirthDate();
-        Assert.assertEquals(expected,actual);
-
-
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void eatTest(){
+        //Given
+        Food food = new Food();
+        int expected = 3;
+        //When
+        String catName = "cat";
+        Date catDate = new Date();
+        Cat cat = new Cat(catName, catDate, 1);
+        cat.eat(food);
+        cat.eat(food);
+        cat.eat(food);
+        //Then
+        int actual = cat.getNumberOfMealsEaten();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void idTest(){
+        //Given
+        int expected = 5;
+        //When
+        String catName = "cat";
+        Date catDate = new Date();
+        Cat cat = new Cat(catName, catDate, expected);
+        //Then
+        int actual = cat.getId();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void animalInheritTest(){
+        //When
+        String catName = "cat";
+        Date catDate = new Date();
+        Cat cat = new Cat(catName, catDate, 1);
+        //Then
+        Assert.assertTrue(cat instanceof Animal);
+    }
+    @Test
+    public void mammalInheritTest(){
+        //When
+        String catName = "cat";
+        Date catDate = new Date();
+        Cat cat = new Cat(catName, catDate, 1);
+        //Then
+        Assert.assertTrue(cat instanceof Mammal);
     }
 }
